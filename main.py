@@ -56,7 +56,6 @@ async def send_zenith(interaction: discord.Interaction, member: discord.Member, 
     @bot.tree.command(name="付与", description="管理者用：指定ユーザーにZeniTh coinを付与します。")
     @app_commands.describe(member="付与する相手", amount="付与するZeniTh coinの金額")
     async def grant_zenith(interaction: discord.Interaction, member: discord.Member, amount: int):
-    # 管理者チェック
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message("このコマンドは管理者のみ使用できます。", ephemeral=True)
         return
@@ -73,8 +72,8 @@ async def send_zenith(interaction: discord.Interaction, member: discord.Member, 
     )
     
     @bot.tree.command(name="金額確認", description="管理者用：指定ユーザーのZeniTh coin残高を確認します。")
-@app_commands.describe(member="残高を確認したいユーザー")
-async def check_other_balance(interaction: discord.Interaction, member: discord.Member):
+    @app_commands.describe(member="残高を確認したいユーザー")
+    async def check_other_balance(interaction: discord.Interaction, member: discord.Member):
     # 管理者権限チェック
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message("このコマンドは管理者のみ使用できます。", ephemeral=True)
@@ -87,8 +86,8 @@ async def check_other_balance(interaction: discord.Interaction, member: discord.
     )
     
     @bot.tree.command(name="ロール送金", description="管理者用：指定ロールの全メンバーにZeniTh coinを一括送金します。")
-@app_commands.describe(role="対象ロール", amount="一人あたりの送金額（整数）")
-async def send_to_role(interaction: discord.Interaction, role: discord.Role, amount: int):
+    @app_commands.describe(role="対象ロール", amount="一人あたりの送金額（整数）")
+    async def send_to_role(interaction: discord.Interaction, role: discord.Role, amount: int):
     # 管理者チェック
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message("このコマンドは管理者のみ使用できます。", ephemeral=True)
@@ -114,7 +113,7 @@ async def send_to_role(interaction: discord.Interaction, role: discord.Role, amo
     )
     
     @bot.tree.command(name="金額ランキング", description="管理者用：ZeniTh coinの残高ランキングを表示します。")
-async def zenith_ranking(interaction: discord.Interaction):
+    async def zenith_ranking(interaction: discord.Interaction):
     # 管理者チェック
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message("このコマンドは管理者のみ使用できます。", ephemeral=True)
@@ -137,9 +136,9 @@ async def zenith_ranking(interaction: discord.Interaction):
 
     await interaction.response.send_message(rank_message, ephemeral=True)
 
-@bot.tree.command(name="残高減少", description="管理者用：指定ユーザーのZeniTh coinを減らします。")
-@app_commands.describe(member="残高を減らす対象のユーザー", amount="減らすZeniTh coinの金額")
-async def decrease_balance(interaction: discord.Interaction, member: discord.Member, amount: int):
+    @bot.tree.command(name="残高減少", description="管理者用：指定ユーザーのZeniTh coinを減らします。")
+    @app_commands.describe(member="残高を減らす対象のユーザー", amount="減らすZeniTh coinの金額")
+    async def decrease_balance(interaction: discord.Interaction, member: discord.Member, amount: int):
     # 管理者チェック
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message("このコマンドは管理者のみ使用できます。", ephemeral=True)
