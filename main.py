@@ -53,9 +53,9 @@ async def send_zenith(interaction: discord.Interaction, member: discord.Member, 
         ephemeral=True
     )
     
-    @bot.tree.command(name="付与", description="管理者用：指定ユーザーにZeniTh coinを付与します。")
-    @app_commands.describe(member="付与する相手", amount="付与するZeniTh coinの金額")
-    async def grant_zenith(interaction: discord.Interaction, member: discord.Member, amount: int):
+@bot.tree.command(name="付与", description="管理者用：指定ユーザーにZeniTh coinを付与します。")
+@app_commands.describe(member="付与する相手", amount="付与するZeniTh coinの金額")
+async def grant_zenith(interaction: discord.Interaction, member: discord.Member, amount: int):
     if not interaction.user.guild_permissions.administrator:
         await interaction.response.send_message("このコマンドは管理者のみ使用できます。", ephemeral=True)
         return
