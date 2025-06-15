@@ -54,7 +54,7 @@ async def send_zenith(interaction: discord.Interaction, member: discord.Member, 
     )
     
     @bot.tree.command(name="付与", description="管理者用：指定ユーザーにZeniTh coinを付与します。")
-@app_commands.describe(member="付与する相手", amount="付与するZeniTh coinの金額")
+    @app_commands.describe(member="付与する相手", amount="付与するZeniTh coinの金額")
 async def grant_zenith(interaction: discord.Interaction, member: discord.Member, amount: int):
     # 管理者チェック
     if not interaction.user.guild_permissions.administrator:
